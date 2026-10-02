@@ -55,18 +55,4 @@ Frontend: React.js
 Backend: Laravel API  
 Database: MySQL
 
-## 🚀 Installation
 
-### Backend
-...
-
-### Frontend
-...
-
-## 📸 Screenshots
-
-...
-
-## 👨‍💻 Author
-
-Ayoub Ait Sayed
