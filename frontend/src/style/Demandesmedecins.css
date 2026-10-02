@@ -1,0 +1,501 @@
+/* ==========================================================
+   DEMANDES MÉDECINS — même identité que le Dashboard Admin
+   (murs bleus de Chefchaouen, terre cuite, calcaire blanchi)
+========================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap");
+
+:root {
+  --chaouen-950: #12283c;
+  --chaouen-700: #1d4863;
+  --chaouen-500: #3d7ea6;
+  --chaouen-300: #8fbcd6;
+  --chaouen-100: #e7f1f7;
+  --chalk: #fdfefe;
+  --clay-600: #a85a3a;
+  --clay-100: #f7e9df;
+  --sage-600: #3f7a5c;
+  --sage-500: #5f9c7c;
+  --sage-100: #e6f3ec;
+  --ink-900: #16283a;
+  --ink-600: #4c6478;
+  --ink-400: #7c93a5;
+  --line: #dde7ee;
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+.demandes-page {
+  min-height: 100vh;
+  background: var(--chaouen-100);
+  color: var(--ink-900);
+  font-family: var(--font-body);
+  padding: 0 28px 40px;
+}
+
+
+/* ==========================================================
+   LOADING
+========================================================== */
+
+.demandes-loading {
+  min-height: 100vh;
+  background: var(--chaouen-100);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--chaouen-700);
+}
+
+.spinner {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--chaouen-300);
+  border-top-color: var(--chaouen-700);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.demandes-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 26px 30px 22px;
+
+  background: linear-gradient(155deg, var(--chaouen-950) 0%, var(--chaouen-700) 100%);
+  border-radius: 0 0 16px 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.demandes-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(
+    135deg,
+    var(--clay-600) 0 10px,
+    var(--sage-500) 10px 20px,
+    var(--chaouen-300) 20px 30px
+  );
+  opacity: 0.85;
+}
+
+.demandes-header h1 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 25px;
+  color: var(--chalk);
+}
+
+.demandes-header p {
+  margin: 6px 0 0;
+  color: var(--chaouen-300);
+  font-size: 12px;
+}
+
+.back-button {
+  text-decoration: none;
+  color: var(--chalk);
+
+  background: rgba(253, 254, 254, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 8px;
+
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 600;
+
+  white-space: nowrap;
+  transition: background 0.15s ease;
+}
+
+.back-button:hover {
+  background: rgba(253, 254, 254, 0.18);
+}
+
+
+/* ==========================================================
+   ALERTS
+========================================================== */
+
+.alert {
+  max-width: 1100px;
+  margin: 20px auto 0;
+
+  padding: 12px 16px;
+  border-radius: 8px;
+
+  font-size: 13px;
+}
+
+.alert-success {
+  background: var(--sage-100);
+  color: var(--sage-600);
+  border: 1px solid #bfe0cd;
+}
+
+.alert-error {
+  background: var(--clay-100);
+  color: #8a3f22;
+  border: 1px solid #e6c3ad;
+}
+
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.empty-state {
+  max-width: 1100px;
+  margin: 24px auto 0;
+
+  background: var(--chalk);
+  border: 1px dashed var(--chaouen-300);
+  border-radius: 14px;
+
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.empty-state h3 {
+  margin: 0 0 6px;
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--ink-900);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--ink-400);
+}
+
+
+/* ==========================================================
+   DEMANDES GRID
+========================================================== */
+
+.demandes-grid {
+  max-width: 1100px;
+  margin: 24px auto 0;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.demande-card {
+  background: var(--chalk);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+
+  padding: 18px;
+
+  box-shadow: 0 3px 14px rgba(18, 40, 60, 0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.demande-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(18, 40, 60, 0.1);
+}
+
+.demande-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+.demande-avatar {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--chaouen-700);
+  color: var(--chalk);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.demande-identity {
+  flex: 1;
+  min-width: 0;
+}
+
+.demande-identity h2 {
+  margin: 0 0 4px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--ink-900);
+}
+
+.specialite-badge {
+  display: inline-block;
+  background: var(--chaouen-100);
+  color: var(--chaouen-700);
+
+  border-radius: 20px;
+  padding: 3px 9px;
+
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.status-badge {
+  flex-shrink: 0;
+
+  background: var(--clay-100);
+  color: var(--clay-600);
+
+  border-radius: 20px;
+  padding: 4px 10px;
+
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+
+/* ==========================================================
+   DETAILS
+========================================================== */
+
+.demande-details {
+  margin: 0 0 16px;
+}
+
+.detail-row {
+  display: flex;
+  gap: 10px;
+
+  padding: 6px 0;
+  border-top: 1px dashed var(--line);
+
+  font-size: 11.5px;
+}
+
+.detail-row dt {
+  flex: 0 0 90px;
+  color: var(--ink-400);
+  font-weight: 600;
+}
+
+.detail-row dd {
+  margin: 0;
+  color: var(--ink-600);
+  word-break: break-word;
+}
+
+.detail-row.description dd {
+  line-height: 1.5;
+}
+
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.demande-actions {
+  margin-top: auto;
+
+  display: flex;
+  gap: 10px;
+}
+
+.btn-accept,
+.btn-refuse {
+  flex: 1;
+
+  border: none;
+  border-radius: 8px;
+
+  padding: 10px 14px;
+
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-body);
+
+  cursor: pointer;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.btn-accept {
+  background: var(--sage-600);
+  color: var(--chalk);
+}
+
+.btn-refuse {
+  background: var(--chalk);
+  color: var(--clay-600);
+  border: 1px solid #e6c3ad;
+}
+
+.btn-accept:hover,
+.btn-refuse:hover {
+  opacity: 0.85;
+}
+
+.btn-accept:active,
+.btn-refuse:active {
+  transform: scale(0.98);
+}
+
+
+/* ==========================================================
+   CONFIRMATION — modale centrée (remplace window.confirm)
+========================================================== */
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+
+  background: rgba(18, 40, 60, 0.45);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.confirm-modal {
+  width: min(90vw, 400px);
+
+  background: var(--chalk);
+  border-radius: 14px;
+  border-top: 4px solid var(--chaouen-700);
+
+  padding: 26px 24px 22px;
+
+  box-shadow: 0 20px 48px rgba(18, 40, 60, 0.3);
+
+  animation: confirm-pop 0.18s ease-out;
+}
+
+@keyframes confirm-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.confirm-modal h3 {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 19px;
+  color: var(--ink-900);
+}
+
+.confirm-modal p {
+  margin: 0 0 22px;
+  font-size: 12.5px;
+  color: var(--ink-600);
+  line-height: 1.5;
+}
+
+.confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.confirm-actions .btn-accept,
+.confirm-actions .btn-refuse {
+  flex: none;
+}
+
+.btn-cancel {
+  background: transparent;
+  color: var(--ink-600);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+
+  padding: 10px 16px;
+
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-body);
+
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btn-cancel:hover {
+  background: var(--chaouen-100);
+  border-color: var(--chaouen-300);
+}
+
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 700px) {
+
+  .demandes-page {
+    padding: 0 15px 30px;
+  }
+
+  .demandes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .demandes-grid {
+    grid-template-columns: 1fr;
+  }
+
+}

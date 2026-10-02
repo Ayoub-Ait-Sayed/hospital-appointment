@@ -1,0 +1,509 @@
+* {
+  box-sizing: border-box;
+}
+
+.rdv-page {
+  min-height: 100vh;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(37, 99, 235, 0.10),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #f4f9ff,
+      #f8fafc
+    );
+
+  font-family:
+    "Segoe UI",
+    Arial,
+    sans-serif;
+}
+
+.rdv-container {
+  max-width: 1100px;
+
+  margin: auto;
+}
+
+/* ===============================
+   BACK
+================================ */
+
+.rdv-back {
+  display: inline-block;
+
+  margin-bottom: 25px;
+
+  color: #2879e8;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.rdv-back:hover {
+  transform: translateX(-4px);
+}
+
+/* ===============================
+   HEADER
+================================ */
+
+.rdv-header {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  background: white;
+
+  padding: 28px;
+
+  border-radius: 22px;
+
+  margin-bottom: 25px;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.rdv-header-icon {
+  width: 70px;
+  height: 70px;
+
+  min-width: 70px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 18px;
+
+  background: #e8f2ff;
+
+  font-size: 32px;
+}
+
+.rdv-header span {
+  color: #2879e8;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.rdv-header h1 {
+  margin: 5px 0;
+
+  color: #172033;
+
+  font-size: 32px;
+}
+
+.rdv-header p {
+  margin: 0;
+
+  color: #64748b;
+}
+
+/* ===============================
+   ERROR
+================================ */
+
+.rdv-error {
+  padding: 15px;
+
+  margin-bottom: 20px;
+
+  border-radius: 12px;
+
+  background: #fef2f2;
+
+  border: 1px solid #fecaca;
+
+  color: #dc2626;
+}
+
+/* ===============================
+   LIST
+================================ */
+
+.rdv-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}
+
+/* ===============================
+   CARD
+================================ */
+
+.rdv-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  background: white;
+
+  padding: 22px;
+
+  border-radius: 18px;
+
+  border: 1px solid #e7edf4;
+
+  box-shadow:
+    0 7px 25px rgba(15, 23, 42, 0.05);
+
+  transition: 0.25s;
+}
+
+.rdv-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+/* ===============================
+   DATE
+================================ */
+
+.rdv-date {
+  width: 125px;
+
+  min-width: 125px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  border-radius: 14px;
+
+  background: #f5f9ff;
+
+  border: 1px solid #dbeafe;
+}
+
+.rdv-date span {
+  display: block;
+
+  color: #64748b;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 5px;
+}
+
+.rdv-date strong {
+  display: block;
+
+  color: #2879e8;
+
+  font-size: 17px;
+
+  margin-bottom: 6px;
+}
+
+.rdv-date small {
+  color: #64748b;
+
+  font-size: 12px;
+}
+
+/* ===============================
+   INFO
+================================ */
+
+.rdv-info {
+  flex: 1;
+}
+
+.rdv-info h2 {
+  margin: 0 0 8px;
+
+  color: #172033;
+
+  font-size: 19px;
+}
+
+.rdv-specialite {
+  display: inline-block;
+
+  margin: 0 0 7px;
+
+  padding: 6px 10px;
+
+  border-radius: 8px;
+
+  background: #eff6ff;
+
+  color: #2879e8;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.rdv-doctor {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+/* ===============================
+   STATUS
+================================ */
+
+.rdv-status-container {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 12px;
+}
+
+.rdv-status {
+  padding: 7px 13px;
+
+  border-radius: 20px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+}
+
+.status-confirmed {
+  color: #15803d;
+
+  background: #dcfce7;
+}
+
+.status-finished {
+  color: #64748b;
+
+  background: #f1f5f9;
+}
+
+.status-cancelled {
+  color: #dc2626;
+
+  background: #fee2e2;
+}
+
+.status-pending {
+  color: #b45309;
+
+  background: #fef3c7;
+}
+
+/* ===============================
+   CANCEL
+================================ */
+
+.cancel-button {
+  padding: 8px 13px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 9px;
+
+  background: white;
+
+  color: #dc2626;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.cancel-button:hover {
+  background: #fef2f2;
+
+  transform: translateY(-1px);
+}
+
+/* ===============================
+   EMPTY
+================================ */
+
+.rdv-empty {
+  text-align: center;
+
+  background: white;
+
+  padding: 70px 30px;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 30px rgba(15, 23, 42, 0.06);
+}
+
+.rdv-empty-icon {
+  font-size: 55px;
+
+  margin-bottom: 15px;
+}
+
+.rdv-empty h2 {
+  color: #172033;
+
+  margin-bottom: 8px;
+}
+
+.rdv-empty p {
+  color: #64748b;
+
+  margin-bottom: 25px;
+}
+
+.rdv-primary-button {
+  display: inline-block;
+
+  padding: 13px 20px;
+
+  border-radius: 11px;
+
+  background: #2879e8;
+
+  color: white;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  transition: 0.2s;
+}
+
+.rdv-primary-button:hover {
+  background: #1768d5;
+
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   LOADING
+================================ */
+
+.rdv-loading {
+  min-height: 80vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.rdv-loading h2 {
+  margin: 15px 0 5px;
+
+  color: #172033;
+}
+
+.rdv-loading p {
+  color: #64748b;
+}
+
+.rdv-spinner {
+  width: 45px;
+  height: 45px;
+
+  border: 4px solid #dbeafe;
+
+  border-top-color: #2879e8;
+
+  border-radius: 50%;
+
+  animation: rdv-spin 0.8s linear infinite;
+}
+
+@keyframes rdv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 700px) {
+
+  .rdv-page {
+    padding: 25px 15px;
+  }
+
+  .rdv-header {
+    padding: 22px;
+  }
+
+  .rdv-header-icon {
+    width: 55px;
+    height: 55px;
+
+    min-width: 55px;
+
+    font-size: 25px;
+  }
+
+  .rdv-header h1 {
+    font-size: 25px;
+  }
+
+  .rdv-card {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 15px;
+  }
+
+  .rdv-date {
+    width: 100%;
+  }
+
+  .rdv-status-container {
+    flex-direction: row;
+
+    align-items: center;
+
+    justify-content: space-between;
+  }
+
+  .cancel-button {
+    padding: 9px 15px;
+    
+  }
+}
